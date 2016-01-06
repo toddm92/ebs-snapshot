@@ -1,6 +1,6 @@
-### AWS Automated EBS Volume Snapshots
+### Automated EBS Volume Snapshots
 
-This BASH script will create a snapshot of EBS volumes mathcing
+This BASH script will create a snapshot of AWS EBS volumes mathcing
 a specific TAG key/value pair. It will look for snapshots older than a retention
 period/date and remove them.
 
