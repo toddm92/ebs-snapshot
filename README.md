@@ -1,10 +1,10 @@
-### Automated EBS Volume Snapshots
+### AWS Automated EBS Volume Snapshots
 
 This BASH script will create a snapshot of EBS volumes mathcing
 a specific TAG key/value pair. It will look for snapshots older than a retention
 period/date and remove them.
 
-Can be run from cron once a day, or from AWS Data Pipeline (ebs-snapshot-dp.sh)
+Run from AWS Data Pipeline (ebs-snapshot-dp.sh)
 
 **Requirements:**
 
@@ -12,11 +12,11 @@ Can be run from cron once a day, or from AWS Data Pipeline (ebs-snapshot-dp.sh)
 * A valid profile in `~/.aws/config` or `${AWS_CONFIG_FILE}` with the appropriate API keys (ebs-snapshot.sh)
 * MacOS `date` command/format (ebs-snapshot.sh)
 
-**An EBS volume snapshot will be created if:**
+An EBS volume snapshot will be created if:
 
 * The EBS volume is assigned the TAG key/value pair; "Autosnap/True"
 
-**A Snapshot will be removed only after meeting the following criteria:**
+A Snapshot will be removed after meeting the following criteria:
 
 * The snapshot status equals "complete"
 * Snapshot has the description, "Automated snapshot"
@@ -52,16 +52,11 @@ snap-e29174a0 has been deleted.
 snap-35097d70 has been deleted.
 ```
 
+Data Pipeline Workflow
+![EBS Snapshot Diagram](./ebs-autosnap-edp-flow.jpg)
+
 **To Do:**
 
 - [ ] Modify to handle/use the `date` command from other linux flavors
 - [ ] Add the necessary logic to run from either cmd-line (i.e. --profile) or Data Pipeline
-
-**Notes:**
-
-Data Pipeline Workflow
-![EBS Snapshot Diagram](./ebs-autosnap-edp-flow.jpg)
-
-AWS Linux Date
-
-`date -d"$TODAY" +%s`
+- [ ] Rewrite in Python/Node once AWS releases Lambda VPC support
