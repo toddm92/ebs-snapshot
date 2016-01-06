@@ -53,7 +53,7 @@ snap-35097d70 has been deleted.
 ```
 
 Data Pipeline Workflow
-![EBS Snapshot Diagram](./ebs-autosnap-edp-flow.jpg)
+![EBS Snapshot Diagram](./images/ebs-autosnap-edp-flow.jpg)
 
 **To Do:**
 

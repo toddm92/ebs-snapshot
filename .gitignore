@@ -19,5 +19,6 @@ Icon
 .VolumeIcon.icns
 
 # Images
+images/*
 *.png
 *.jpg
